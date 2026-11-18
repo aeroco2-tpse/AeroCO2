@@ -12,7 +12,7 @@ AeroCO2 calculates how much fuel and CO₂ can be saved on a reference long-haul
 First runnable prototype: `src/aeroco2/main.py` calculates fuel burn and CO₂ for an example A319 flight using OpenAP and plots the fuel flow. It is adapted from the OpenAP examples (see [Acknowledgements](#acknowledgements)). See [Setup](#setup) and [Usage](#usage) for how to run it.
 
 # Requirements
-- Python 3.14.8
+- Python 3.11 or newer
 - pip
 - Git
 - Runs on Windows, macOS and Linux
@@ -94,3 +94,8 @@ Florian Müller, Hubert Tanuwidjaja, Olga Makarova, Reyvaldo Siahaan, Timon Hell
 
 
 TPSE WiSe 2026/27, TU Darmstadt
+
+
+A first runnable prototype in our target stack (Python, pip, OpenAP, pandas). The script src/aeroco2/main.py loads an example flight (Airbus A319, OpenSky data from data/), calculates the fuel burn minute by minute with the OpenAP fuel model, converts it to CO₂ and plots the fuel flow over time. The code is adapted from the OpenAP examples. 
+
+How to build and start it: Described in README.md in our repository (https://github.com/aeroco2-tpse/AeroCO2), sections "Setup" and "Usage". In short: with Python 3.11 or newer, create a virtual environment (python -m venv .venv), activate it (macOS/Linux: source .venv/bin/activate, Windows: .venv\Scripts\activate), run pip install -r requirements.txt, then start with python src/aeroco2/main.py.
