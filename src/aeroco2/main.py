@@ -1,17 +1,22 @@
+from pathlib import Path
+
 from matplotlib import dates
 import matplotlib
-matplotlib.use("QtAgg")
 import pandas as pd
 import openap
 import matplotlib.pyplot as plt
 
+# ---- Paths -----
+BASE_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = BASE_DIR.parent.parent
+DATA_DIR = PROJECT_ROOT/"data"
 
 mass_takeoff_assumed = 66000  # kg
 
 fuelflow = openap.FuelFlow("A319")
 emission = openap.Emission(ac="A319")
 # Load the data
-df = pd.read_csv(
+df = pd.read_csv(DATA_DIR/
     "flight_a319_opensky.csv",
     parse_dates=["timestamp"],
     dtype={"icao24": str},
@@ -52,6 +57,7 @@ for i, row in df.iterrows():
     fuelflow_every_step.append(ff)
     fuel_every_step.append(fuel)
     mass_current -= fuel
+    
 #Expand the DataFrame with fuel flow, fuel and CO2 emission data
 df = df.assign(fuel_flow=fuelflow_every_step, fuel=fuel_every_step)
 df = df.assign(co2_flow=lambda d: emission.co2(d.fuel_flow))
