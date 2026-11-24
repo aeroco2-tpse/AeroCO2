@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 # ---- Paths -----
 BASE_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = BASE_DIR.parent.parent
-DATA_DIR = PROJECT_ROOT/"data"
+DATA_DIR = PROJECT_ROOT/"data/reference_flights"
 
 mass_takeoff_assumed = 66000  # kg
 
