@@ -1,3 +1,5 @@
+import pandas as pd
+
 def load_flight_data(filepath):
     """
     Load flight data from a CSV file.
@@ -8,4 +10,6 @@ def load_flight_data(filepath):
     Returns:
         DataFrame: Loaded flight data.
     """
-    return pd.read_csv(filepath, sep=";", decimal=",", encoding="utf-8")
+    df = pd.read_csv(filepath, parse_dates=["timestamp"], dtype={"icao24": str},)
+    df = df.assign(d_ts=lambda d: d.timestamp.diff().dt.total_seconds().bfill())
+    return df

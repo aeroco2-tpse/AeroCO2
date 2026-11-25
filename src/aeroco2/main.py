@@ -1,5 +1,5 @@
 from pathlib import Path
-
+import reference_model as r_m
 from matplotlib import dates
 import matplotlib
 import pandas as pd
@@ -16,11 +16,8 @@ mass_takeoff_assumed = 66000  # kg
 fuelflow = openap.FuelFlow("A319")
 emission = openap.Emission(ac="A319")
 # Load the data
-df = pd.read_csv(DATA_DIR/
-    "flight_a319_opensky.csv",
-    parse_dates=["timestamp"],
-    dtype={"icao24": str},
-)
+df =r_m.load_flight_data(DATA_DIR/"flight_a319_opensky.csv")
+
 
 # Calculate seconds between each  timestamp
 df = df.assign(d_ts=lambda d: d.timestamp.diff().dt.total_seconds().bfill())
