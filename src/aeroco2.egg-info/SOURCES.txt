@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+src/aeroco2/__init__.py
+src/aeroco2/calculations.py
+src/aeroco2/flight_data.py
+src/aeroco2/main.py
+src/aeroco2/simulation.py
+src/aeroco2.egg-info/PKG-INFO
+src/aeroco2.egg-info/SOURCES.txt
+src/aeroco2.egg-info/dependency_links.txt
+src/aeroco2.egg-info/requires.txt
+src/aeroco2.egg-info/top_level.txt
+tests/test_example.py

@@ -1,5 +1,4 @@
 import pandas as pd
-
 def load_flight_data(filepath):
     """
     Load flight data from a CSV file.
